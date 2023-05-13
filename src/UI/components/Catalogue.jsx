@@ -15,7 +15,7 @@ export const Modal = forwardRef(({closeModal, catalogueModal}, ref) => {
             </motion.div>
             <div
                 className={`${window.innerWidth > 740 ? '' : 'justify-start'} h-[75vh] w-5/6 flex items-center hover:cursor-pointer relative`}>
-                <ul className={'h-full rounded-xl bg-lagoone xsm:w-[85vw] md:min-w-[310px] flex flex-col px-4 overflow-y-scroll scrollbar'}>
+                <ul className={'h-full rounded-xl bg-lagoone xsm:w-[85vw] md:w-[310px] flex flex-col px-4 overflow-y-scroll scrollbar'}>
                     <p className={'h-12 flex items-center font-bold py-4'}>Категории</p>
                     {data.map(item => (
                         <div key={item.name}>
@@ -26,7 +26,7 @@ export const Modal = forwardRef(({closeModal, catalogueModal}, ref) => {
                     ))}
                 </ul>
                 <motion.ul
-                    className={'absolute left-0 rounded-xl h-full bg-lagoone xsm:w-[85vw] md:min-w-[310px] flex flex-col px-4 overflow-y-scroll scrollbar'}
+                    className={'absolute left-0 rounded-xl h-full bg-lagoone xsm:w-[85vw] md:w-[310px] flex flex-col px-4 overflow-y-scroll scrollbar'}
                     initial={{left: 0}}
                     animate={window.innerWidth > 740 ?
                         categoryITemList.name ? {left: '320px', zIndex: 40} : {left: 0, zIndex: -10} :

@@ -4,7 +4,7 @@ import {Categories} from "./components/Categories";
 
 export const Main = () => {
     return (
-        <div className={'w-full'}>
+        <div className={'w-full min-h-[85vh]'}>
             <IntroCarousel/>
             <Categories/>
             <ProductsPromotion/>

@@ -55,7 +55,7 @@ const Search = () => {
     )
 
     return (
-        <div className={'w-full px-2 relative'}>
+        <div className={'w-full px-2 relative min-h-[85vh]'}>
             <div className={'my-4 text-xl w-fit flex flex-col justify-center'}>
                 <p>Фильтровать по</p>
                 <div className="flex items-center">

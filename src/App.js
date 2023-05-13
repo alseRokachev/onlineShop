@@ -26,7 +26,7 @@ function App() {
             <div className="md:container xsm:w-screen w-full h-full flex justify-center items-center">
                 <Suspense fallback={<LoadingAnimation/>}>
                     <Routes>
-                        <Route path={'/'} element={<Main/>}/>
+                        <Route path={'/onlineShop'} element={<Main/>}/>
                         <Route path={'/search'} element={<Search/>}/>
                         <Route path={'/admin'} element={<Admin/>}/>
                     </Routes>
