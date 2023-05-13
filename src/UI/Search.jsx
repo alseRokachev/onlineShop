@@ -57,11 +57,11 @@ const Search = () => {
     return (
         <div className={'w-full px-2 relative min-h-[85vh]'}>
             <div className={'my-4 text-xl w-fit flex flex-col justify-center'}>
-                <p>Фильтровать по</p>
+                <p className={'md:text-lg sm:text-sm xsm:text-[15px]'}>Фильтровать по</p>
                 <div className="flex items-center">
                     <div
-                        className={`bg-prpl px-3 rounded-full min-w-[27px] text-slate-50 flex items-center w-fit h-7 mr-1 text-[15px] justify-center cursor-pointer`}
-                        onClick={() => setFilter(!filter)}>{filterName || <p className={'text-xl'}>+</p>}
+                        className={`bg-prpl ${filterName !== '' ? 'px-3' : ''} md:h-7 xsm:h-5 rounded-full min-w-[27px] text-slate-50 flex items-center w-fit mr-1 text-[15px] justify-center cursor-pointer md:text-xl sm:text-sm xsm:text-[11px]`}
+                        onClick={() => setFilter(!filter)}>{filterName || <p>+</p>}
                     </div>
                     <motion.div className="cursor-pointer" initial={{opacity: 0}}
                                 animate={filterName === '' ? {scale: 0} : {scale: 1, opacity : 1}} transition={{duration: 0.3}}>

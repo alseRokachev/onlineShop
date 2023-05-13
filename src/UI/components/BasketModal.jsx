@@ -13,7 +13,7 @@ export const Modal = forwardRef(
         return (
             <div className={'bg-gray w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
                  ref={ref}>
-                <div className={`w-5/6 h-[85vh] ${window.innerWidth > 740 ? 'pt-20' : 'pt-24 pb-7'}`}>
+                <div className={`w-5/6 h-[80vh] ${window.innerWidth > 740 ? 'pt-20' : 'pt-24 pb-7'}`}>
                     <div className="absolute right-5 top-5 flex items-center">
                         <p className={'text-xl mr-4'}>Корзина</p>
                         <img src="icons8-cancel-100.webp" alt="" className={'w-10 cursor-pointer'}
@@ -46,7 +46,7 @@ export const Modal = forwardRef(
                         <div
                             className={`lg:w-1/5 sm:w-1/3 xsm:w-1/2 h-full flex justify-end items-center`}>
                             <button
-                                className={`lg:px-6 sm:px-2 w-full bg-lagoone rounded-xl text-prpl text-[14px] h-3/5 hover:bg-slate-300 duration-500`}
+                                className={`lg:px-6 sm:px-2 w-full bg-lagoone rounded-xl text-prpl xsm:text-[13px] md:text-[14px] h-3/5 hover:bg-slate-300 duration-500`}
                                 onClick={() => {
                                     navigate('/pay')
                                     closeModal(false)
@@ -57,7 +57,7 @@ export const Modal = forwardRef(
                             </button>
                         </div>
                     </motion.div>
-                    <motion.button className={'pb-4'} onClick={() => dispatch(deleteAllBasket())}
+                    <motion.button className={'pb-4 md:text-[15px] xsm:text-sm'} onClick={() => dispatch(deleteAllBasket())}
                                    animate={data.length > 0 ? {opacity: '100%'} : {opacity: 0}}>
                         Удалить всё
                     </motion.button>

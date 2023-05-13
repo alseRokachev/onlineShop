@@ -15,9 +15,9 @@ const productAnimation = {
 export const ProductsPromotion = () => {
     const data = useSelector(state => state.goodsData.goodsData)
     return (
-        <div className={'mt-8 px-2'}>
-            <p className={'text-2xl'}>Для вас</p>
-            <div className={`md:justify-between xsm:justify-center w-full flex flex-wrap mt-8 gap-4 overflow-hidden`}>
+        <div className={'mt-2 px-2'}>
+            <p className={'text-xl'}>Для вас</p>
+            <div className={`md:justify-between xsm:justify-between w-full flex flex-wrap mt-3 gap-4 overflow-hidden`}>
                 {data.map((item, index) => (
                     <MProductCard
                         product={item}

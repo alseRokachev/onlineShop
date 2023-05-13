@@ -20,7 +20,7 @@ function App() {
     };
     return (
         <div className="App bg-[] min-h-screen flex flex-col overflow-x-hidden relative">
-            <div className={`md:h-16 xsm:h-[100px] mb-3 w-full`}>
+            <div className={`md:h-16 xsm:h-[80px] mb-3 w-full`}>
                 <Header/>
             </div>
             <div className="md:container xsm:w-screen w-full h-full flex justify-center items-center">

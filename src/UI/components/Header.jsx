@@ -7,7 +7,7 @@ import {changeValue} from "../../store/search";
 import {Catalogue} from "./Catalogue";
 import {BurgerMenuHeader} from "./BurgerMenuHeader";
 import {modalAction} from "../../store/user";
-
+const folder = 'icons8-z-fold-leaflet-100.webp'
 export const Header = () => {
     const [favouriteModal, setFavouriteModal] = useState(false)
     const [basketModal, setBasketModal] = useState(false)
@@ -23,16 +23,16 @@ export const Header = () => {
              id={'header'}>
             <div
                 className={`md:w-1/2 md:justify-between md:flex-row xsm:w-full xsm:flex-col xsm:justify-evenly h-full flex items-center justify-between font-extrabold`}>
-                <div className={`xsm:w-5/6 xsm:justify-center md:w-1/4 md:justify-start md:pl-4 flex items-center relative`}>
+                <div className={`xsm:w-5/6 xsm:justify-center md:w-1/4 md:justify-start md:pl-4 flex items-center`}>
                     <p className={'hover:cursor-pointer'} onClick={() => navigate('/onlineShop')}>Минимаркет</p>
-                    <div className="absolute right-0 md:hidden xsm:flex">
+                    <div className="absolute right-2 md:hidden xsm:flex">
                         <BurgerMenuHeader setCatalogue={setCatalogueModal} setBasket={setBasketModal}
                                           setFavourite={setFavouriteModal} setBurger={setBurger} burger={burger}/>
                     </div>
                 </div>
-                <div className={`md:w-4/6 xsm:w-5/6 h-9 relative flex items-center`}>
+                <div className={`md:w-4/6 xsm:w-5/6 md:h-9 xsm:h-7 relative flex items-center`}>
                     <input type="text" value={searchValue}
-                           className={'w-full h-full border border-prpl font-medium rounded-xl outline-none px-4'}
+                           className={'w-full h-full border border-prpl font-medium rounded-xl outline-none px-4 md:text-[15px] xsm:text-sm'}
                            onFocus={() => navigate('/search')} placeholder={'Искать'}
                            onInput={(event) => {
                                setSearchValue(event.currentTarget.value)
@@ -92,7 +92,7 @@ export const Header = () => {
                 </ul>
             </div>
             <FavouriteModal closeModal={setFavouriteModal} favouriteModal={favouriteModal}
-                            initial={window.innerWidth > 740 ? {top: '-100%', borderRadius: '100vh'} : {top: '-100vh'}}
+                            initial={window.innerWidth > 740 ? {top: '-100vh', borderRadius: '100vh'} : {top: '-100vh'}}
                             animate={favouriteModal ? {top: 0, borderRadius: 0} : {
                                 top: '-100vh'
                             }}

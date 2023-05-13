@@ -16,7 +16,7 @@ export const ModalItem = ({activeModal, index, item, basket}) => {
                 className={`md:h-16 md:w-2/5 xsm:h-32 xsm:w-full flex items-center`}>
                 <img src={item.img} alt=""
                      className={`h-full md:w-16 xsm:w-32 rounded-l-xl`}/>
-                <p className={'xsm:text-[14px] sm:text-[15px] mx-4 font-bold'}>{item.name}</p>
+                <p className={'xsm:text-[14px] sm:text-[15px] xsm:mx-2 xsm:text-center md:mx-4 font-bold'}>{item.name}</p>
             </div>
             <div
                 className={`md:w-3/5 md:justify-between md:flex-row xsm:flex-col xsm:justify-evenly flex items-center h-full`}>
@@ -33,7 +33,7 @@ export const ModalItem = ({activeModal, index, item, basket}) => {
                             }>-
                         </button>
                         <div
-                            className={`md:w-1/3 xsm:bg-slate-200 xsm:w-2/5 h-full border-y border-prpl flex items-center`}>
+                            className={`md:w-1/3 xsm:bg-slate-200 xsm:w-2/5 h-full border-y border-prpl flex items-center md:text-[15px] xsm:text-[14px]`}>
                             <div className="w-full text-center">{item.counter} шт</div>
                         </div>
                         <button

@@ -23,7 +23,7 @@ const Modal = forwardRef(
                             <ModalItem activeModal={favouriteModal} index={index} item={item}/>))}
                     </div>
                 </div>
-                <motion.button className={'justify-self-end pb-8'} onClick={() => dispatch(deleteAllFavourite())}
+                <motion.button className={'justify-self-end pb-8 md:text-[15px] xsm:text-sm'} onClick={() => dispatch(deleteAllFavourite())}
                                animate={data.length > 0 ? {opacity: '100%'} : {opacity: 0}}>
                     Удалить всё
                 </motion.button>

@@ -15,7 +15,7 @@ export const IntroCarousel = () => {
                 <motion.div
                     drag="x"
                     dragConstraints={{right: 0, left: -width}}
-                    className={`md:h-[300px] xsm:h-[22vh] w-fit hover:cursor-grab relative flex max-h-[100vw]`}>
+                    className={`md:h-[300px] xsm:h-[20vh] sm:h-[22vh] w-fit hover:cursor-grab relative flex max-h-[100vw]`}>
                     {data.map((item, index) => (
                         <motion.div className={'w-fit min-w-full'} key={index}>
                             <img src={item.img} alt=""
