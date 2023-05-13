@@ -24,7 +24,7 @@ export const Header = () => {
             <div
                 className={`md:w-1/2 md:justify-between md:flex-row xsm:w-full xsm:flex-col xsm:justify-evenly h-full flex items-center justify-between font-extrabold`}>
                 <div className={`xsm:w-5/6 xsm:justify-center md:w-1/4 md:justify-start md:pl-4 flex items-center relative`}>
-                    <p className={'hover:cursor-pointer'} onClick={() => navigate('')}>Минимаркет</p>
+                    <p className={'hover:cursor-pointer'} onClick={() => navigate('/onlineShop')}>Минимаркет</p>
                     <div className="absolute right-0 md:hidden xsm:flex">
                         <BurgerMenuHeader setCatalogue={setCatalogueModal} setBasket={setBasketModal}
                                           setFavourite={setFavouriteModal} setBurger={setBurger} burger={burger}/>
