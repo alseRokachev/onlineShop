@@ -92,21 +92,21 @@ export const Header = () => {
                 </ul>
             </div>
             <FavouriteModal closeModal={setFavouriteModal} favouriteModal={favouriteModal}
-                            initial={window.innerWidth > 740 ? {top: '-100%', borderRadius: '100%'} : {top: '-100%'}}
+                            initial={window.innerWidth > 740 ? {top: '-100%', borderRadius: '100vh'} : {top: '-100vh'}}
                             animate={favouriteModal ? {top: 0, borderRadius: 0} : {
-                                top: '-100%'
+                                top: '-100vh'
                             }}
                             transition={{duration: 0.4}}/>
             <BasketModal closeModal={setBasketModal} basketModal={basketModal} setBurger={setBurger}
-                         initial={window.innerWidth > 740 ? {top: '-100%', borderRadius: '100%'} : {top: '-100%'}}
+                         initial={window.innerWidth > 740 ? {top: '-100vh', borderRadius: '100%'} : {top: '-100vh'}}
                          animate={basketModal ? {top: 0, borderRadius: 0} : {
-                             top: '-100%'
+                             top: '-100vh'
                          }}
                          transition={{duration: 0.4}}/>
             <Catalogue closeModal={setCatalogueModal} catalogueModal = {catalogueModal}
-                       initial={{top: '-100%'}}
+                       initial={{top: '-100vh'}}
                        animate={catalogueModal ? {top: 0} : {
-                           top: '-100%'
+                           top: '-100vh'
                        }}
                        transition={{duration: 0.3}}/>
         </div>
