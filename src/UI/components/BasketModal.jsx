@@ -11,7 +11,7 @@ export const Modal = forwardRef(
         const data = useSelector(state => state.userData.basket)
         const navigate = useNavigate()
         return (
-            <div className={'bg-gray w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
+            <div className={'bg-gradient-to-r from-orange-800 via-amber-800 to-amber-800 w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
                  ref={ref}>
                 <div className={`w-5/6 h-[80vh] ${window.innerWidth > 740 ? 'pt-20' : 'pt-24 pb-7'}`}>
                     <div className="absolute right-5 top-5 flex items-center">

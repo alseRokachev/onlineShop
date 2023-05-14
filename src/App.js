@@ -20,10 +20,10 @@ function App() {
     };
     return (
         <div className="App bg-[] min-h-screen flex flex-col overflow-x-hidden relative">
-            <div className={`md:h-16 xsm:h-[80px] mb-3 w-full`}>
+            <div className={`md:h-16 xsm:h-[80px] md:mb-3 w-full xsm:bg-gradient-to-r from-amber-600 via-amber-700 to-orange-700`}>
                 <Header/>
             </div>
-            <div className="md:container xsm:w-screen w-full h-full flex justify-center items-center">
+            <div className="md:container xsm:w-screen w-full h-fit flex justify-center items-center">
                 <Suspense fallback={<LoadingAnimation/>}>
                     <Routes>
                         <Route path={'/onlineShop'} element={<Main/>}/>

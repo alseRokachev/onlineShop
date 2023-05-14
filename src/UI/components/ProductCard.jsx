@@ -11,7 +11,7 @@ export const ProductCard = forwardRef(
         const [counter, setCounter] = useState(1)
         return (
             <div className={'md:w-[300px] xsm:w-5/12 mb-8 flex flex-col justify-between relative'} ref={ref}>
-                <img src={product.img} alt="" className={'w-full max-h-[70%]'}/>
+                <img src={product.img} alt="" className={'w-full max-h-[70%] rounded-xl'}/>
                 <p className={'font-bold sm:text-[16px] xsm:text-sm md:text-lg xsm:mt-2 md:mt-0'}>{product.name}</p>
                 <p className={'xsm:mt-1 md:mt-0 xsm:text-sm sm:text-[15px]'}>Цена : {product.price} Руб</p>
                 <img
@@ -21,13 +21,13 @@ export const ProductCard = forwardRef(
                 <div className={'w-full md:flex-row xsm:flex-col xsm:items-center flex justify-between xsm:mt-1 md:mt-0'}>
                     <motion.div className="xsm:w-full sm:h-8 xsm:h-6 flex items-center md:w-2/5 md:h-9"
                                 animate={basketData.find(item => item.id === product.id) ? {scale: 0} : {scale: 1}}>
-                        <button className="w-1/3 bg-prpl h-full rounded-l-xl text-slate-50"
+                        <button className="w-1/3 bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800 h-full rounded-l-xl text-slate-50"
                                 onClick={() => counter < 2 ? setCounter(1) : setCounter(prevState => prevState - 1)}>-
                         </button>
                         <div className="h-full border-y border-prpl w-1/3 flex items-center">
                             <div className="w-full text-center">{counter}</div>
                         </div>
-                        <button className="w-1/3 bg-prpl h-full rounded-r-xl text-slate-50"
+                        <button className="w-1/3 bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800 h-full rounded-r-xl text-slate-50"
                                 onClick={() => setCounter(prevState => prevState + 1)}>+
                         </button>
                     </motion.div>
@@ -39,7 +39,7 @@ export const ProductCard = forwardRef(
                             }}>В корзине
                         </button> :
                         <button
-                            className={'sm:h-8 xsm:h-6 xsm:mt-2 xsm:w-full md:w-36 md:h-9 md:mt-0 bg-prpl xsm:text-sm md:text-[16px] rounded-xl text-slate-50 active:bg-purple-500 duration-200'}
+                            className={'sm:h-8 xsm:h-6 xsm:mt-2 xsm:w-full md:w-36 md:h-9 md:mt-0 bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800 xsm:text-sm md:text-[16px] rounded-xl text-slate-50 active:bg-purple-500 duration-200'}
                             onClick={() => {
                                 dispatch(actionBasket({...product, counter: counter}))
                                 setCounter(1)

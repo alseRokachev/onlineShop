@@ -12,7 +12,7 @@ export const BurgerMenuHeader = ({setBasket,setCatalogue,setFavourite,burger,set
                 setBurger(true)
                 dispatch(modalAction(true))
             }}/>
-            <motion.div className={'fixed w-screen h-screen top-0 z-50 bg-gray flex items-center justify-center'}
+            <motion.div className={'fixed w-screen h-screen top-0 z-50 bg-gradient-to-r from-orange-800 via-amber-700 to-amber-800 flex items-center justify-center'}
                         initial={{left: '100%'}} animate={burger ? {left: 0} : {left: '100%'}}>
                 <div className="absolute right-5 top-5 flex items-center">
                     <img src="icons8-cancel-100.webp" alt="" className={'w-10 cursor-pointer'}

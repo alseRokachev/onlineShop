@@ -8,9 +8,8 @@ const Modal = forwardRef(
     ({closeModal,favouriteModal}, ref) => {
         const dispatch = useDispatch()
         const data = useSelector(state => state.userData.favourite)
-        const basketData = useSelector(state => state.userData.basket)
         return (
-            <div className={'bg-gray w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
+            <div className={'bg-gradient-to-r from-orange-800 via-amber-800 to-amber-800 w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
                  ref={ref}>
                 <div className="w-5/6 h-[85vh] pt-20">
                     <div className="absolute right-5 top-5 flex items-center">

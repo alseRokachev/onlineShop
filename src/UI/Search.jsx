@@ -60,7 +60,7 @@ const Search = () => {
                 <p className={'md:text-lg sm:text-sm xsm:text-[15px]'}>Фильтровать по</p>
                 <div className="flex items-center">
                     <div
-                        className={`bg-prpl ${filterName !== '' ? 'px-3' : ''} md:h-7 xsm:h-5 rounded-full min-w-[27px] text-slate-50 flex items-center w-fit mr-1 text-[15px] justify-center cursor-pointer md:text-xl sm:text-sm xsm:text-[11px]`}
+                        className={`bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800 ${filterName !== '' ? 'px-3' : ''} md:h-6 xsm:h-5 rounded-full min-w-[27px] text-slate-50 flex items-center w-fit mr-1 text-[15px] justify-center cursor-pointer md:text-[15px] sm:text-sm xsm:text-[11px]`}
                         onClick={() => setFilter(!filter)}>{filterName || <p>+</p>}
                     </div>
                     <motion.div className="cursor-pointer" initial={{opacity: 0}}
@@ -72,7 +72,7 @@ const Search = () => {
                     </motion.div>
                 </div>
             </div>
-            <div className={`${window.innerWidth > 740 ? 'justify-between' : 'justify-center'} w-full flex flex-wrap gap-4`}>
+            <div className={`justify-between w-full flex flex-wrap gap-4`}>
                 {searchResult.map((item, index) => <MProductCard product={item}
                                                                  key={index}
                                                                  initial="hidden"
@@ -81,10 +81,10 @@ const Search = () => {
                                                                  custom={index}
                                                                  viewport={{amount: 0.5}}/>)}
             </div>
-            <motion.div className="bg-prpl absolute top-24 w-64 left-2" initial={{opacity: 0}}
+            <motion.div className="rounded-xl absolute top-[75px] md:w-64 xsm:w-44 left-2" initial={{opacity: 0}}
                         animate={filter ? "visible" : "hidden"}
                         variants={filterAnimation}>
-                <motion.ul className={`w-full h-full text-slate-50 flex-col justify-evenly px-2 hover:cursor-pointer`}
+                <motion.ul className={`w-full md:text-[15px] xsm:text-[14px] rounded-xl h-full bg-gradient-to-r from-amber-800 to-orange-800 text-slate-50 flex-col justify-evenly px-2 hover:cursor-pointer`}
                            animate={filter ? {display: 'flex', opacity: 1} : {
                                display: 'none',
                                opacity: 0

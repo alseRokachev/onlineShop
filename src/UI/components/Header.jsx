@@ -7,7 +7,6 @@ import {changeValue} from "../../store/search";
 import {Catalogue} from "./Catalogue";
 import {BurgerMenuHeader} from "./BurgerMenuHeader";
 import {modalAction} from "../../store/user";
-const folder = 'icons8-z-fold-leaflet-100.webp'
 export const Header = () => {
     const [favouriteModal, setFavouriteModal] = useState(false)
     const [basketModal, setBasketModal] = useState(false)
@@ -30,7 +29,7 @@ export const Header = () => {
                                           setFavourite={setFavouriteModal} setBurger={setBurger} burger={burger}/>
                     </div>
                 </div>
-                <div className={`md:w-4/6 xsm:w-5/6 md:h-9 xsm:h-7 relative flex items-center`}>
+                <div className={`md:w-4/6 xsm:w-5/6 md:h-9 xsm:h-8 relative flex items-center`}>
                     <input type="text" value={searchValue}
                            className={'w-full h-full border border-prpl font-medium rounded-xl outline-none px-4 md:text-[15px] xsm:text-sm'}
                            onFocus={() => navigate('/search')} placeholder={'Искать'}
