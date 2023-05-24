@@ -1,13 +1,11 @@
 import {IntroCarousel} from "./components/IntroCarousel";
-import {ProductsPromotion} from "./components/ProductsPromotion";
-import {Categories} from "./components/Categories";
+import {CategoriesCarousel} from "./components/CategoriesCarousel";
 
 export const Main = () => {
     return (
-        <div className={'w-full min-h-[85vh]'}>
+        <div className={'w-full min-h-[85vh] mb-20'}>
             <IntroCarousel/>
-            <Categories/>
-            <ProductsPromotion/>
+            <CategoriesCarousel/>
         </div>
     )
 }

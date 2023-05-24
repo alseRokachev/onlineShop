@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {changeValue} from "../../store/search";
 import {Catalogue} from "./Catalogue";
-import {BurgerMenuHeader} from "./BurgerMenuHeader";
 import {modalAction} from "../../store/user";
 export const Header = () => {
     const [favouriteModal, setFavouriteModal] = useState(false)
@@ -14,20 +13,15 @@ export const Header = () => {
     const [searchValue, setSearchValue] = useState('')
     const basketData = useSelector(state => state.userData.basket)
     const favouriteData = useSelector(state => state.userData.favourite)
-    const [burger, setBurger] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     return (
-        <div className={`md:w-screen md:h-16 xsm:w-full xsm:h-full w-full text-prpl flex lg:px-8`}
+        <div className={`md:w-screen h-full xsm:w-full xsm:h-full w-full text-prpl flex lg:px-8`}
              id={'header'}>
             <div
                 className={`md:w-1/2 md:justify-between md:flex-row xsm:w-full xsm:flex-col xsm:justify-evenly h-full flex items-center justify-between font-extrabold`}>
                 <div className={`xsm:w-5/6 xsm:justify-center md:w-1/4 md:justify-start md:pl-4 flex items-center`}>
                     <p className={'hover:cursor-pointer'} onClick={() => navigate('/onlineShop')}>Минимаркет</p>
-                    <div className="absolute right-2 md:hidden xsm:flex">
-                        <BurgerMenuHeader setCatalogue={setCatalogueModal} setBasket={setBasketModal}
-                                          setFavourite={setFavouriteModal} setBurger={setBurger} burger={burger}/>
-                    </div>
                 </div>
                 <div className={`md:w-4/6 xsm:w-5/6 md:h-9 xsm:h-8 relative flex items-center`}>
                     <input type="text" value={searchValue}
@@ -44,9 +38,9 @@ export const Header = () => {
                          }}/>
                 </div>
             </div>
-            <div className="w-1/2 h-full md:flex xsm:hidden">
-                <ul className={'flex w-full h-full font-bold'}>
-                    <li className={'w-1/3 h-full flex flex-col items-center justify-center'}>
+            <nav className="xsm:w-full xsm:bg-prpl xsm:rounded-t-xl md:rounded-none  md:bg-transparent md:w-1/2 xsm:h-[55px] md:h-full md:static xsm:fixed bottom-0 flex items-center z-50">
+                <ul className={'flex w-full h-full md:h-full font-bold xsm:text-slate-50 md:text-black'}>
+                    <li className={'w-1/3 flex flex-col items-center justify-center xsm:text-[13px] md:text-[15px]'}>
                         <div className="flex flex-col items-center cursor-pointer relative"
                              onClick={() => {
                                  setCatalogueModal(true)
@@ -56,7 +50,7 @@ export const Header = () => {
                             Каталог
                         </div>
                     </li>
-                    <li className={'w-1/3 h-full flex flex-col items-center justify-center'}>
+                    <li className={'w-1/3 h-full md:h-full flex flex-col items-center justify-center xsm:text-[13px] md:text-[15px]'}>
                         <div className="flex flex-col items-center cursor-pointer relative"
                              onClick={() => {
                                  setBasketModal(true)
@@ -72,7 +66,7 @@ export const Header = () => {
                             )}
                         </div>
                     </li>
-                    <li className={'w-1/3 h-full flex flex-col items-center justify-center'}>
+                    <li className={'w-1/3 h-full md:h-full flex flex-col items-center justify-center xsm:text-[13px] md:text-[15px]'}>
                         <div className="flex flex-col items-center cursor-pointer relative"
                              onClick={() => {
                                  setFavouriteModal(true)
@@ -89,14 +83,14 @@ export const Header = () => {
                         </div>
                     </li>
                 </ul>
-            </div>
+            </nav>
             <FavouriteModal closeModal={setFavouriteModal} favouriteModal={favouriteModal}
                             initial={window.innerWidth > 740 ? {top: '-100vh', borderRadius: '100vh'} : {top: '-100vh'}}
                             animate={favouriteModal ? {top: 0, borderRadius: 0} : {
                                 top: '-100vh'
                             }}
                             transition={{duration: 0.4}}/>
-            <BasketModal closeModal={setBasketModal} basketModal={basketModal} setBurger={setBurger}
+            <BasketModal closeModal={setBasketModal} basketModal={basketModal}
                          initial={window.innerWidth > 740 ? {top: '-100vh', borderRadius: '100%'} : {top: '-100vh'}}
                          animate={basketModal ? {top: 0, borderRadius: 0} : {
                              top: '-100vh'

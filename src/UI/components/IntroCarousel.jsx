@@ -16,7 +16,7 @@ export const IntroCarousel = () => {
                 <motion.div
                     drag="x"
                     dragConstraints={{right: 0, left: -width}}
-                    className={`md:h-[300px] xsm:h-[20vh] sm:h-[22vh] w-fit hover:cursor-grab relative flex max-h-[100vw]`}>
+                    className={`lg:h-[300px] md:h-[250px] xsm:h-[20vh] sm:h-[22vh] w-fit hover:cursor-grab relative flex max-h-[100vw]`}>
                     {data.map((item, index) => (
                         <motion.div className={'w-fit min-w-full'} key={index} whileInView ={() => setScroll(index)} viewport={{amount: 0.7}}>
                             <img src={item.img} alt=""
@@ -25,10 +25,10 @@ export const IntroCarousel = () => {
                     ))}
                 </motion.div>
             </motion.div>
-            <div className="absolute bottom-1 xsm:w-[80px] md:w-[100px] flex justify-between items-center">
+            <div className="absolute bottom-2 xsm:w-[80px] md:w-[100px] flex justify-between items-center">
                 {data.map((item,index) => {
                  return (
-                     <div className={`${index === scroll ? 'bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800' : 'bg-slate-200'} shadow-sm shadow-slate-950 md:w-4 md:h-4 xsm:w-3 xsm:h-3 bg-slate-200 rounded-full`}></div>
+                     <div className={`${index === scroll ? 'bg-gray' : 'bg-slate-200'} shadow-sm shadow-slate-950 md:w-4 md:h-4 xsm:w-3 xsm:h-3 bg-slate-200 rounded-full`}></div>
                  )
                 })}
             </div>

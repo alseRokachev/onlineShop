@@ -2,6 +2,7 @@ import {useSelector} from "react-redux";
 import {MProductCard} from "./components/ProductCard";
 import {useEffect, useMemo, useState} from "react";
 import {motion} from "framer-motion";
+import axios from "axios";
 
 const productAnimation = {
     hidden: {
@@ -27,8 +28,8 @@ const filterAnimation = {
     }
 }
 const Search = () => {
-    const searchValue = useSelector(state => state.searchData.value)
     const data = useSelector(state => state.goodsData.goodsData)
+    const searchValue = useSelector(state => state.searchData.value)
     const [filter, setFilter] = useState(false)
     const [filterName, setFilterName] = useState('')
     const [searchResult, setSearchResult] = useState(data)
@@ -39,7 +40,11 @@ const Search = () => {
     const filterMemoIncrease = useMemo(() => {
         return data.filter(item => item.name.toLowerCase().trim().includes(searchValue.toLowerCase().trim())).sort((a, b) => b.price - a.price)
     }, [filterName, searchValue])
-
+    const filterMemoAlpabet = useMemo(() => {
+        return data.filter(item => item.name.toLowerCase().trim().includes(searchValue.toLowerCase().trim())).sort((prev, next) => {
+            if (prev.name < next.name) return -1;
+        });
+    }, [filterName, searchValue])
 
     useEffect(() => {
             if (filterName == '') {
@@ -50,6 +55,9 @@ const Search = () => {
             }
             if (filterName == 'цене (убывание)') {
                 setSearchResult(filterMemoIncrease)
+            }
+            if (filterName == 'алфавиту') {
+                setSearchResult(filterMemoAlpabet)
             }
         }, [filterName, searchValue]
     )
@@ -64,7 +72,8 @@ const Search = () => {
                         onClick={() => setFilter(!filter)}>{filterName || <p>+</p>}
                     </div>
                     <motion.div className="cursor-pointer" initial={{opacity: 0}}
-                                animate={filterName === '' ? {scale: 0} : {scale: 1, opacity : 1}} transition={{duration: 0.3}}>
+                                animate={filterName === '' ? {scale: 0} : {scale: 1, opacity: 1}}
+                                transition={{duration: 0.3}}>
                         <img src="icons8-delete-100.webp" alt="" className={'w-8'} onClick={() => {
                             setFilterName('')
                             setFilter(false)
@@ -72,7 +81,7 @@ const Search = () => {
                     </motion.div>
                 </div>
             </div>
-            <div className={`justify-between w-full flex flex-wrap gap-4`}>
+            <div className={`xsm:justify-between sm:justify-evenly lg:justify-between w-full flex flex-wrap gap-4`}>
                 {searchResult.map((item, index) => <MProductCard product={item}
                                                                  key={index}
                                                                  initial="hidden"
@@ -84,11 +93,12 @@ const Search = () => {
             <motion.div className="rounded-xl absolute top-[75px] md:w-64 xsm:w-44 left-2" initial={{opacity: 0}}
                         animate={filter ? "visible" : "hidden"}
                         variants={filterAnimation}>
-                <motion.ul className={`w-full md:text-[15px] xsm:text-[14px] rounded-xl h-full bg-gradient-to-r from-amber-800 to-orange-800 text-slate-50 flex-col justify-evenly px-2 hover:cursor-pointer`}
-                           animate={filter ? {display: 'flex', opacity: 1} : {
-                               display: 'none',
-                               opacity: 0
-                           }}>
+                <motion.ul
+                    className={`w-full md:text-[15px] xsm:text-[14px] rounded-xl h-full bg-gradient-to-r from-amber-800 to-orange-800 text-slate-50 flex-col justify-evenly px-2 hover:cursor-pointer`}
+                    animate={filter ? {display: 'flex', opacity: 1} : {
+                        display: 'none',
+                        opacity: 0
+                    }}>
                     <li onClick={() => {
                         setFilterName('цене (убывание)')
                         setFilter(false)
@@ -99,6 +109,12 @@ const Search = () => {
                         setFilterName('цене (возрастание)')
                         setFilter(false)
                     }} className={'h-full flex items-center'}>цене (возрастание)
+                    </li>
+                    <hr/>
+                    <li onClick={() => {
+                        setFilterName('алфавиту')
+                        setFilter(false)
+                    }} className={'h-full flex items-center'}>алфавиту
                     </li>
                 </motion.ul>
             </motion.div>

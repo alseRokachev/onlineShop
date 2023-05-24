@@ -12,7 +12,7 @@ module.exports = {
         },
         extend: {
             colors: {
-                'prpl': '#5C2018',
+                'prpl': '#8B4513',
                 'lagoone': '#D8C3A5',
                 'gray': '#A97953'
             },

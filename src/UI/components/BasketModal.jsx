@@ -11,9 +11,9 @@ export const Modal = forwardRef(
         const data = useSelector(state => state.userData.basket)
         const navigate = useNavigate()
         return (
-            <div className={'bg-gradient-to-r from-orange-800 via-amber-800 to-amber-800 w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
+            <div className={'bg-gray w-screen h-screen fixed right-0 z-50 flex flex-col justify-center items-center'}
                  ref={ref}>
-                <div className={`w-5/6 h-[80vh] ${window.innerWidth > 740 ? 'pt-20' : 'pt-24 pb-7'}`}>
+                <div className={`xsm:w-full xsm:px-4 md:mx-0 sm:w-5/6 h-[80vh] md:pt-20 xsm:pt-24 xsm:pb-7`}>
                     <div className="absolute right-5 top-5 flex items-center">
                         <p className={'text-xl mr-4'}>Корзина</p>
                         <img src="icons8-cancel-100.webp" alt="" className={'w-10 cursor-pointer'}
@@ -66,7 +66,7 @@ export const Modal = forwardRef(
                     className={data.length > 0 ? 'hidden' : 'absolute top-1/2 flex flex-col items-center'}
                     animate={data.length < 1 ? {y: 0} : {y: '100%'}}>
                     <img src="icons8-empty-100.webp" alt="" className={'w-16'}/>
-                    <p className={'w-full text-center font-bold'}>Корзина пуста</p>
+                    <p className={'w-full text-center font-bold text-prpl'}>Корзина пуста</p>
                 </motion.div>
             </div>
         )

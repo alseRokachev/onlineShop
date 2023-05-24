@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 import {useEffect, useRef, useState} from "react";
 import {motion} from "framer-motion";
 
-export const Categories = () => {
+export const CategoriesCarousel = () => {
     const data = useSelector(state => state.goodsData.goodsCategories)
     const [width, setWidth] = useState(0)
     const carousel = useRef()
@@ -18,7 +18,7 @@ export const Categories = () => {
                             dragConstraints={{right: 0, left: -width}}>
                     {data.map((item, index) => (
                         <motion.button key={item.name}
-                                       className={`xsm:mb-2 md:mb-0 xsm:min-w-[160px] xsm:h-[70px] xsm:text-[13px] sm:text-sm md:text-[15px] font-bold bg-gradient-to-r from-amber-800 via-amber-700 to-orange-800 rounded-xl px-3 py-0.5 text-slate-100`}
+                                       className={`xsm:mb-2 md:mb-0 xsm:min-w-[160px] xsm:h-[70px] xsm:text-[13px] sm:text-sm md:text-[15px] bg-prpl font-bold rounded-xl px-3 py-0.5 text-slate-50`}
                                        initial={{height: 45}} whileInView={{height: 70}} viewport={{amount: 0.2}}
                         >
                             {item.name}

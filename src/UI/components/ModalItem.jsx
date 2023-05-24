@@ -7,54 +7,48 @@ export const ModalItem = ({activeModal, index, item, basket}) => {
     const dispatch = useDispatch()
     return (
         <motion.div
-            className={`w-full md:h-16 xsm:h-32 xsm:relative flex bg-slate-50 items-center rounded-xl`}
+            className={`w-full md:h-16 xsm:min-h-[70px] xsm:max-h-[70px] xsm:relative flex bg-slate-50 items-center rounded-md`}
             initial={window.innerWidth > 740 ? {opacity: 0, y: -10} : {opacity: 1, y: 0}}
             animate={activeModal ? {opacity: 1, y: 0} : {}}
             transition={{delay: 0.2 * index}} key={index}
         >
-            <div
-                className={`md:h-16 md:w-2/5 xsm:h-32 xsm:w-full flex items-center`}>
-                <img src={item.img} alt=""
-                     className={`h-full md:w-16 xsm:w-32 rounded-l-xl`}/>
-                <p className={'xsm:text-[14px] sm:text-[15px] xsm:mx-2 xsm:text-center md:mx-4 font-bold'}>{item.name}</p>
+            <div className="h-full">
+                <img src={item.img} alt="" className={'h-14 w-14 rounded-br-md rounded-tl-md'}/>
             </div>
-            <div
-                className={`md:w-3/5 md:justify-between md:flex-row xsm:flex-col xsm:justify-evenly flex items-center h-full`}>
-                <div
-                    className={`md:w-2/5 md:pl-8 md:h-full md:flex md:items-center md:justify-center md:static sm:text-[15px] xsm:w-fit xsm:text-center xsm:absolute xsm:bottom-0 xsm:text-[14px] xsm:right-3`}>
-                    <p>Цена : {item.price} Руб</p>
+            <div className="w-1/2 h-full ml-2 flex flex-col justify-between">
+                <div className="h-1/2 mt-2 flex items-center">
+                    <p className={'xsm:text-[13px] md:text-[15px]'}>{item.name}</p>
                 </div>
-                {basket && (
-                    <div
-                        className={`md:w-2/6 md:static xsm:w-32 xsm:absolute xsm:left-0 xsm:bottom-0 h-7 flex`}>
-                        <button
-                            className={`md:rounded-l-xl xsm:rounded-bl-xl w-1/3 bg-prpl h-full text-slate-50`}
-                            onClick={() => dispatch(changeCounter({...item, counter: item.counter - 1}))
-                            }>-
-                        </button>
-                        <div
-                            className={`md:w-1/3 xsm:bg-slate-200 xsm:w-2/5 h-full border-y border-prpl flex items-center md:text-[15px] xsm:text-[14px]`}>
-                            <div className="w-full text-center">{item.counter} шт</div>
-                        </div>
-                        <button
-                            className={`md:rounded-r-xl xsm:rounded-none w-1/3 bg-prpl h-full text-slate-50`}
-                            onClick={() => dispatch(changeCounter({...item, counter: item.counter + 1}))
-
-                            }>+
-                        </button>
+                <p className={'xsm:text-[12px] md:text-[14px] mb-1'}><span className={'font-bold'}>{item.price}</span> Р
+                    за шт</p>
+            </div>
+            {basket && (
+                <div
+                    className="md:max-w-[140px] xsm:max-w-[80px] w-full md:h-8 xsm:h-7 flex text-slate-50 absolute right-1 bottom-1">
+                    <button className="bg-prpl h-full w-1/3 rounded-l-md"
+                            onClick={() => dispatch(changeCounter({...item, counter: item.counter - 1}))}>-
+                    </button>
+                    <div className="bg-prpl h-full w-1/3 flex items-center justify-center text-xs">
+                        {item.counter}
                     </div>
-                )}
-                {!basket && (
-                    dataBasket.find(el => el.id === item.id) ?
-                        <button className={'xsm:hidden sm:block'} onClick={() => dispatch(actionBasket(item))}> Убрать из корзины</button> :
-                        <button className={'xsm:hidden sm:block'} onClick={() => dispatch(actionBasket({...item, counter: 1}))}>Добавить в корзину</button>
-                )}
-                <div
-                    className={`md:pr-4 md:static xsm:absolute xsm:right-2 xsm:top-0 w-1/5 flex justify-end`}>
-                    <img src='icons8-minus-100.webp' alt="" className={'w-7 hover:cursor-pointer'}
-                         onClick={() => basket ? dispatch(actionBasket(item)) : dispatch(actionFavourite(item))}/>
+                    <button className="bg-prpl h-full w-1/3 rounded-r-md"
+                            onClick={() => dispatch(changeCounter({...item, counter: item.counter + 1}))}>+
+                    </button>
                 </div>
+            )}
+            {!basket && (
+                dataBasket.find(el => el.id === item.id) ?
+                    <button className={'xsm:absolute right-2 bottom-0 sm:block xsm:text-[13px] md:text-[15px]'} onClick={() => dispatch(actionBasket(item))}> Убрать из
+                        корзины</button> :
+                    <button className={'xsm:absolute right-2 bottom-0 sm:block xsm:text-[13px] md:text-[15px]'}
+                            onClick={() => dispatch(actionBasket({...item, counter: 1}))}>Добавить в корзину</button>
+            )}
+            <div
+                className={`absolute xsm:right-2 xsm:top-0 w-1/5 flex justify-end`}>
+                <img src='icons8-minus-100.webp' alt="" className={'w-5 hover:cursor-pointer'}
+                     onClick={() => basket ? dispatch(actionBasket(item)) : dispatch(actionFavourite(item))}/>
             </div>
         </motion.div>
     )
 }
+// onClick={() => dispatch(changeCounter({...item, counter: item.counter - 1}))

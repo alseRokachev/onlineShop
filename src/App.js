@@ -9,8 +9,6 @@ import {Footer} from "./UI/components/Footer";
 import {useSelector} from "react-redux";
 
 const Search = lazy(() => import("./UI/Search"));
-const Payment = lazy(() => import("./UI/Payment"));
-const Admin = lazy(() => import("./admin/Admin"))
 
 function App() {
     const [scrollHeight, setScrollHeight] = useState(0)
@@ -19,16 +17,15 @@ function App() {
         setScrollHeight(window.scrollY)
     };
     return (
-        <div className="App bg-[] min-h-screen flex flex-col overflow-x-hidden relative">
-            <div className={`md:h-16 xsm:h-[80px] md:mb-3 w-full xsm:bg-gradient-to-r from-amber-600 via-amber-700 to-orange-700`}>
+        <div className="App bg-slate-100 min-h-screen flex flex-col overflow-x-hidden relative">
+            <div className={`md:h-16 xsm:h-[80px] lg:mb-3 w-full shadow-md`}>
                 <Header/>
             </div>
-            <div className="md:container xsm:w-screen w-full h-fit flex justify-center items-center">
+            <div className="lg:container xsm:w-screen w-full h-fit flex justify-center items-center">
                 <Suspense fallback={<LoadingAnimation/>}>
                     <Routes>
                         <Route path={'/onlineShop'} element={<Main/>}/>
                         <Route path={'/search'} element={<Search/>}/>
-                        <Route path={'/admin'} element={<Admin/>}/>
                     </Routes>
                 </Suspense>
             </div>
@@ -37,11 +34,6 @@ function App() {
                                 animate={scrollHeight > window.screen.height / 4 ? {y: 0, opacity: 1} : {y: '150%'}}
                                 transition={{duration: 0.7, type: 'spring'}}/>
             )}
-            <Suspense fallback={<LoadingAnimation/>}>
-                <Routes>
-                    <Route path={'/pay'} element={<Payment/>}/>
-                </Routes>
-            </Suspense>
             <Footer/>
         </div>
     );
